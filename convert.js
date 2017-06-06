@@ -2,6 +2,7 @@
 const fs = require('fs');
 const currentUser = 'You';
 const file = process.argv[2];
+const omitImages = process.argv[3] === '-o';
 
 let txtData, systemMessage;
 
@@ -65,7 +66,7 @@ const init = () => {
   for (let i = 0, len = arr.length; i < len; i ++) {
 
     let line = arr[i].trim();
-    if (!line.length) {
+    if (!line.length || (omitImages && line.indexOf('<‎image omitted>') >= 0)) {
       continue;
     }
 
@@ -74,7 +75,7 @@ const init = () => {
 
     obj.date = getDate(line.slice(0, 20));
     if (!obj.date) {
-      jsonData.data[i - 1].message += `\n${line}`;
+      jsonData.data[jsonData.data.length - 2].message += `\n${line}`;
     } else {
       obj.user = getUser(line.slice(22));
       obj.message = systemMessage ? line.slice(22) : getMessage(line.slice(24), obj.user);
