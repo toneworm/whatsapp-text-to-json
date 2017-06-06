@@ -7,4 +7,5 @@ node convert.js [yourfile.txt]
 This will convert the chat txt file to a JSON file of the same name.
 
 -o flag will skip omitted images
+
 node convert.js [yourfile.txt] -o
