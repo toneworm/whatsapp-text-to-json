@@ -9,7 +9,12 @@ This will convert the chat txt file to a JSON file of the same name.
 ```javascript
 node convert.js [yourfile.txt]
 ```
--o flag will skip lines with **&lt;image omitted&gt;**
+Appending -o flag will skip lines with **&lt;image omitted&gt;**
 ```javascript
 node convert.js [yourfile.txt] -o
+```
+
+Appending -t flag will not include **type** of message property in generated JSON file.
+```javascript
+node convert.js [yourfile.txt] -t
 ```
