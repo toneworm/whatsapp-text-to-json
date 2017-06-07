@@ -2,7 +2,9 @@
 const fs = require('fs');
 const currentUser = 'You';
 const file = process.argv[2];
-const omitImages = process.argv[3] === '-o';
+const flags = process.argv.slice(2);
+const omitImages = flags.indexOf('-o') >= 0;
+const noType = flags.indexOf('-t') >= 0;
 
 let txtData, systemMessage;
 
@@ -79,7 +81,9 @@ const init = () => {
     } else {
       obj.user = getUser(line.slice(22));
       obj.message = systemMessage ? line.slice(22) : getMessage(line.slice(24), obj.user);
-      obj.type = systemMessage ? 'action' : 'message';
+      if (!noType) {
+        obj.type = systemMessage ? 'action' : 'message';
+      }
 
       jsonData.data.push(obj);
     }
