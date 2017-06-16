@@ -1,0 +1,11 @@
+{
+  "name": "whatsapp-text-to-json",
+  "version": "1.0.0",
+  "description": "Whatsapp Chat txt to JSON conversion",
+  "author": "Rich Williams <rich@toneworm.com>",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "whatsapp"
+  ]
+}
