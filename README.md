@@ -41,12 +41,12 @@ node obj-to-words.js [yourfile.txt]
 ## Example of generated JSON 'frequency of use' file 
 ```JSON
 {
-  "data":[
-    "guys" : 297,
-    "down" : 343,
-    "trumpets" : 10,
-    "weekend": 218,
-    "mate" : 171
-  ]
+  "data":{
+    "guys":297,
+    "down":343,
+    "trumpets":10,
+    "weekend":218,
+    "mate":171
+  }
 }
 ```
