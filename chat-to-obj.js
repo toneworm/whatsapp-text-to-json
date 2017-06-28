@@ -3,7 +3,7 @@ const fs = require('fs');
 const currentUser = 'You';
 const file = process.argv[2];
 const flags = process.argv.slice(2);
-const omitImages = flags.indexOf('-o') >= 0;
+const omitMedia = flags.indexOf('-o') >= 0;
 const noType = flags.indexOf('-t') >= 0;
 
 let txtData, systemMessage;
@@ -68,7 +68,7 @@ const init = () => {
   for (let i = 0, len = arr.length; i < len; i ++) {
 
     let line = arr[i].trim();
-    if (!line.length || (omitImages && line.indexOf('<‎image omitted>') >= 0)) {
+    if (!line.length || (omitMedia && (line.indexOf(' omitted>') >= 0)) {
       continue;
     }
 
