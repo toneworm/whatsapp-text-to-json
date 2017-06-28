@@ -41,8 +41,6 @@ const init = () => {
       item = item.slice(0, -1);
     }
 
-    console.log(item);
-
     if (!obj[item]) {
       obj[item] = 1;
     }
