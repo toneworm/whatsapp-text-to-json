@@ -9,7 +9,7 @@ How to convert the chat txt file to a JSON file containing an array of all messa
 ```javascript
 node chat-to-obj.js [yourfile.txt]
 ```
-Appending -o flag will skip lines with **&lt;image omitted&gt;**
+Appending -o flag will skip lines omitting media
 ```javascript
 node chat-to-obj.js [yourfile.txt] -o
 ```
