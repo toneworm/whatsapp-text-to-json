@@ -2,7 +2,7 @@ const fs = require('fs');
 const file = process.argv[2];
 const nonChars = /[."'!?£$%^&*|\(\)~\[\]\/\\;@#{}<>`+0-9\-]/g;
 const spacesRe = /\s+/g;
-const filterWordsRe = /(and|that|get|what|for|you|this|was|have|with|are|good|the|yeh|yeah|got|now|not|can|too|like|all|but)/g;
+const filterWordsRe = /^(and|that|get|what|for|you|this|was|have|with|are|good|the|yeh|yeah|got|now|not|can|too|like|all|but)$/g;
 let data;
 let words = [];
 
@@ -50,17 +50,28 @@ const init = () => {
       throw err;
     }
     console.log(`Written to ${jsonUrl}`);
-  })
+  });
 };
 
 const filterWords = (word) => {
-  if (word.length > 2
-    && word.length < 20
-    && !filterWordsRe.test(word)
-  ) {
-    return true;
-  } else {
+  if (word.length < 2 || word.length > 20 || filterWordsRe.test(word)) {
+    // if (filterWordsRe.test(word)) {
+    //   console.log(filterWordsRe.test(word));
+    // }
+
+    if (word === 'the') {
+      // there's no way this should happen
+      console.log(word, word.length, filterWordsRe.test(word), (word.length < 2 || word.length > 20 || filterWordsRe.test(word)));
+    }
+
     return false;
+  } else {
+    if (word === 'the') {
+      // there's no way this should happen
+      console.log(word, word.length, filterWordsRe.test(word), (word.length < 2 || word.length > 20 || filterWordsRe.test(word)));
+    }
+    // console.log(filterWordsRe.test(word), true);
+    return true;
   }
 };
 
