@@ -1,8 +1,11 @@
+'use strict';
 const fs = require('fs');
 const file = process.argv[2];
-const nonChars = /[."'!?£$%^&*|\(\)~\[\]\/\\;@#{}<>`+0-9\-]/g;
+const nonChars = /[\.,"!\?£\$%\^&\*\|\(\)~\=\+\[\]\/\\;:@#\{\}<>`0-9\-]/g;
 const spacesRe = /\s+/g;
+
 const filterWordsRe = /^(and|that|get|what|for|you|this|was|have|with|are|good|the|yeh|yeah|got|now|not|can|too|like|all|but)$/g;
+
 let data;
 let words = [];
 
@@ -34,6 +37,12 @@ const init = () => {
     .filter(filterWords);
 
   words = words.reduce((obj, item) => {
+    if (item[0] === '\'') {
+      item = item.slice(1);
+    } else if (item[item.length - 1] === '\'') {
+      item = item.slice(0, -1);
+    }
+
     if (!obj[item]) {
       obj[item] = 1;
     }
@@ -41,7 +50,7 @@ const init = () => {
     obj[item] += 1;
 
     return obj;
-  }, {})
+  }, {});
 
   const jsonUrl = `${file.slice(0, -5)}_words.json`;
 
@@ -54,25 +63,9 @@ const init = () => {
 };
 
 const filterWords = (word) => {
-  if (word.length < 2 || word.length > 20 || filterWordsRe.test(word)) {
-    // if (filterWordsRe.test(word)) {
-    //   console.log(filterWordsRe.test(word));
-    // }
-
-    if (word === 'the') {
-      // there's no way this should happen
-      console.log(word, word.length, filterWordsRe.test(word), (word.length < 2 || word.length > 20 || filterWordsRe.test(word)));
-    }
-
-    return false;
-  } else {
-    if (word === 'the') {
-      // there's no way this should happen
-      console.log(word, word.length, filterWordsRe.test(word), (word.length < 2 || word.length > 20 || filterWordsRe.test(word)));
-    }
-    // console.log(filterWordsRe.test(word), true);
-    return true;
-  }
+  return word.length > 2
+    && word.length < 20
+    && filterWordsArr.indexOf(word) === -1;
 };
 
 const stripActions = (data) => {

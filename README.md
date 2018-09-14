@@ -9,7 +9,7 @@ How to convert the chat txt file to a JSON file containing an array of all messa
 ```javascript
 node chat-to-obj.js [yourfile.txt]
 ```
-Appending -o flag will skip lines with **&lt;image omitted&gt;**
+Appending -o flag will skip lines omitting media
 ```javascript
 node chat-to-obj.js [yourfile.txt] -o
 ```
@@ -21,7 +21,7 @@ node chat-to-obj.js [yourfile.txt] -t
 ## Converting JSON message file to JSON 'frequency of use' file
 How to convert the JSON message file into a JSON file of all words and their frequency of use.
 ```javascript
-node obj-to-words.js [yourfile.txt]
+node obj-to-words.js [yourfile.json]
 ```
 
 ## Example of generated JSON message file 
