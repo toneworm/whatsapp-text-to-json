@@ -24,6 +24,11 @@ How to convert the JSON message file into a JSON file of all words and their fre
 node obj-to-words.js [yourfile.json]
 ```
 
+Appending -a flag will not include any words with apostrophes in them.
+```javascript
+node chat-to-obj.js [yourfile.txt] -t
+```
+
 ## Example of generated JSON message file 
 ```JSON
 {
