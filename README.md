@@ -26,7 +26,7 @@ node obj-to-words.js [yourfile.json]
 
 Appending -a flag will not include any words with apostrophes in them.
 ```javascript
-node chat-to-obj.js [yourfile.txt] -t
+node chat-to-obj.js [yourfile.txt] -a
 ```
 
 ## Example of generated JSON message file 
