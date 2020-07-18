@@ -1,11 +1,30 @@
 {
   "name": "whatsapp-text-to-json",
   "version": "1.0.0",
-  "description": "Whatsapp Chat txt to JSON conversion",
+  "description": "Whatsapp Chat Text to JSON conversion",
   "author": "Rich Williams <rich@toneworm.com>",
-  "main": "index.js",
+  "main": "dist/chat-to-messages.js",
   "license": "MIT",
   "keywords": [
     "whatsapp"
-  ]
+  ],
+  "scripts": {
+    "test": "jest",
+    "messages": "node ./dist/chat-to-messages.js",
+    "words": "node ./dist/messages-to-word-count.js",
+    "dev-messages": "node --enable-source-maps ./dist/chat-to-messages.js",
+    "dev-words": "node --enable-source-maps ./dist/messages-to-word-count.js",
+    "build": "microbundle -i src/scripts/chat-to-messages.js -o dist/chat-to-messages.js --no-pkg-main -f cjs; microbundle -i src/scripts/messages-to-word-count.js -o dist/messages-to-word-count.js --no-pkg-main -f cjs;",
+    "watch-messages": "microbundle watch -i src/scripts/chat-to-messages.js -o dist/chat-to-messages.js --no-pkg-main -f cjs",
+    "watch-words": "microbundle watch -i src/scripts/messages-to-word-count.js -o dist/messages-to-word-count.js --no-pkg-main -f cjs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@types/jest": "^26.0.4",
+    "babel-jest": "^26.1.0",
+    "jest": "^26.1.0",
+    "microbundle": "^0.12.2"
+  },
+  "dependencies": {}
 }
