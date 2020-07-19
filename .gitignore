@@ -1,5 +1,6 @@
 *.txt
 *.json
 !package-lock.json
+!example/_example_chat*
 node_modules
 .vscode

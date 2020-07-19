@@ -33,5 +33,5 @@ writeFile(jsonUrl, JSON.stringify(json), (err) => {
     throw err
   }
   
-  info(`Written to ${jsonUrl}`)
+  info(`written to ${jsonUrl}`)
 })

@@ -55,3 +55,15 @@ npm run words -- _your_chat_file-messages.json -a
   }
 }
 ```
+
+## Using example chat files
+```javascript
+npm run messages -- ./example/_example_chat.txt -t -m
+// written to ./example/_example_chat-messages.json...
+
+npm run words -- ./example/_example_chat-messages.json -a
+// formatting messages...
+// collating and filtering words...
+// creating unique words object...
+// written to ./example/_example_chat-words.json
+```
