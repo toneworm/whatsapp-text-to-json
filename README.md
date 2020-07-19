@@ -1,10 +1,10 @@
 # whatsapp-text-to-json
 Convert exported Whatsapp chat text files to JSON message file containing messages. Also convert JSON message file to JSON word 'frequency of use' file.
 
-## Exporting chat from Whatsapp
+### Exporting chat from Whatsapp
 Go to the chat you want to export, then go to Group Info, select Export Chat (Without Media), export and unzip it to extract the txt file.
 
-## Converting chat txt to JSON message file
+### Converting chat txt to JSON message file
 How to convert the chat txt file to a JSON file containing an array of all messages with timestamp and user information. By default 'omitted media' lines and message **type** information is excluded.
 ```javascript
 npm run messages -- _your_chat_file.txt
@@ -18,7 +18,7 @@ Appending -m flag will retain 'omitted media' lines
 npm run messages -- _your_chat_file.txt -m
 ```
 
-## Converting JSON message file to JSON 'frequency of use' file
+### Converting JSON message file to JSON 'frequency of use' file
 How to convert the JSON message file into a JSON file of all words and their frequency of use.
 ```javascript
 npm run words -- _your_chat_file-messages.json
@@ -29,7 +29,8 @@ Appending -a flag will not include any words with apostrophes in them.
 npm run words -- _your_chat_file-messages.json -a
 ```
 
-## Example of generated JSON message file 
+## Examples
+### Example of generated JSON message file 
 ```JSON
 {
   "data":[
@@ -43,7 +44,7 @@ npm run words -- _your_chat_file-messages.json -a
   ]
 }
 ```
-## Example of generated JSON 'frequency of use' file 
+### Example of generated JSON 'frequency of use' file 
 ```JSON
 {
   "data":{
@@ -56,7 +57,7 @@ npm run words -- _your_chat_file-messages.json -a
 }
 ```
 
-## Using example chat files
+### Using example chat files
 ```javascript
 npm run messages -- ./example/_example_chat.txt -t -m
 // written to ./example/_example_chat-messages.json...
