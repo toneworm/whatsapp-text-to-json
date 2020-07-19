@@ -5,28 +5,28 @@ Convert exported Whatsapp chat text files to JSON message file containing messag
 Go to the chat you want to export, then go to Group Info, select Export Chat (Without Media), export and unzip it to extract the txt file.
 
 ## Converting chat txt to JSON message file
-How to convert the chat txt file to a JSON file containing an array of all messages with timestamp and user information.
+How to convert the chat txt file to a JSON file containing an array of all messages with timestamp and user information. By default 'omitted media' lines and message **type** information is excluded.
 ```javascript
-node chat-to-obj.js [yourfile.txt]
+npm run messages -- _your_chat_file.txt
 ```
-Appending -o flag will skip lines omitting media
+Appending -t flag will add message **type** property in generated JSON file.
 ```javascript
-node chat-to-obj.js [yourfile.txt] -o
+node chat-to-obj.js _your_chat_file.txt -t
 ```
-Appending -t flag will not include **type** of message property in generated JSON file.
+Appending -m flag will retain 'omitted media' lines
 ```javascript
-node chat-to-obj.js [yourfile.txt] -t
+npm run messages -- _your_chat_file.txt -m
 ```
 
 ## Converting JSON message file to JSON 'frequency of use' file
 How to convert the JSON message file into a JSON file of all words and their frequency of use.
 ```javascript
-node obj-to-words.js [yourfile.json]
+npm run words -- _your_chat_file-messages.json
 ```
 
 Appending -a flag will not include any words with apostrophes in them.
 ```javascript
-node chat-to-obj.js [yourfile.txt] -a
+npm run words -- _your_chat_file-messages.json -a
 ```
 
 ## Example of generated JSON message file 
