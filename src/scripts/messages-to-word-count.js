@@ -3,7 +3,7 @@ import { info } from '../utils/info'
 import { writeFile, readFileSync } from 'fs'
 const fileName = process.argv[2]
 const flags = process.argv.slice(2)
-const removeApostropheWords = flags.includes('-a')
+const removeApostropheWords = flags.includes('-ra')
 
 if (!fileName) {
   throw Error('No filename provided.')
