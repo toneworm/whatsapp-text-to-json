@@ -3,6 +3,7 @@ export const standardChat = `[13/03/2020, 09:45:52] Tripdiddytrip: ‎Messages t
 [13/03/2020, 09:45:52] Bob added you
 [13/03/2020, 09:47:32] Bob: Hello all. Have any of you made any plans for the wedding? Are you going? I am trying to work out the best way to get to and from there and what else I might do while I am there. 
 Also, fancy the pub on Saturday?
+[13/03/2020, 10:20:31] +44 1234 567890: u wot m8
 [13/03/2020, 10:22:39] Dave: Blimey you're on whatsapp!
 [13/03/2020, 10:23:09] Dave: I'm driving down in the morning/afternoon on Sunday probably
 [13/03/2020, 10:23:38] Dave: I haven't booked my flights yet but had a look, will be coming back on the Sunday
