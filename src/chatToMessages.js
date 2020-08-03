@@ -87,7 +87,7 @@ function getMessageDetails(messageStr) {
   }
 
   // action message
-  userEndIndex = messageStr.search(/created|added|changed/)
+  userEndIndex = messageStr.search(/created|added|changed|joined|left|removed|group/)
 
   if (userEndIndex >= 0) {
     const userStr = messageStr.slice(0, userEndIndex)
