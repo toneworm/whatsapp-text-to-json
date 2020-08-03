@@ -46,14 +46,10 @@ function getDate(dateStr) {
     return null
   }
 
-  const year = dateStr.slice(7, 11)
-  const month = parseInt(dateStr.slice(4,6)) - 1
-  const date = dateStr.slice(1, 3)
-  const hour = dateStr.slice(13, 15)
-  const min = dateStr.slice(16, 18)
-  const sec = dateStr.slice(19,21)
+  const RE_DATE = /(?<year>\d{4})\/(?<month>\d{1,2})\/(?<date>\d{1,2}), (?<hour>\d{2}):(?<min>\d{2}):(?<sec>\d{2})/;
+  const { groups: { year, month, date, hour, min, sec } } = RE_DATE.exec(dateStr);;
 
-  return new Date(year, month, date, hour, min, sec).toISOString()
+  return new Date(year, month - 1, date, hour, min, sec).toISOString()
 }
 
 function getMessageDetails(messageStr) {
