@@ -11,7 +11,7 @@ npm run messages -- _your_chat_file.txt
 ```
 Appending -t flag will add message **type** property in generated JSON file.
 ```javascript
-node chat-to-obj.js _your_chat_file.txt -t
+npm run messages -- _your_chat_file.txt -t
 ```
 Appending -m flag will retain 'omitted media' lines
 ```javascript

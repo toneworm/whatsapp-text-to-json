@@ -7,8 +7,7 @@ const flags = process.argv.slice(2)
 const includeMediaLines = flags.includes('-m')
 const includeType = flags.includes('-t')
 
-// default: hide the omitted media lines
-// default: don't show the type
+// default: hide the omitted media lines, don't show the type
 
 if (!fileName) {
   throw Error('No filename provided.')
