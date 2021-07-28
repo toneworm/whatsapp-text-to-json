@@ -11,7 +11,12 @@ export function convertToJSON(chatTextString, includeMediaLines, includeType) {
   for (let i = 0, len = chatTextArr.length; i < len; i ++) {
     const line = cleanLine(chatTextArr[i])
 
-    if (!line.length || (!includeMediaLines && mediaLineRegEx.test(line))) {
+    // skip line if empty, media omitted message + flag or e2e encryption message
+    if (
+      !line.length
+      || (!includeMediaLines && mediaLineRegEx.test(line))
+      || (i === 0 && line.indexOf('Messages to this group are now secured with end-to-end encryption.') >= 0)
+    ) {
       continue
     }
 

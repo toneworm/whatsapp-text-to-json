@@ -1,19 +1,8 @@
-import { convertToJSON } from '../src/chatToMessages'
-import { standardChat } from './mocks/chat'
-import { standardMessages } from './mocks/messages'
-// convertToJSON -> chatTextString, includeMediaLines, includeType
+import { convertToJSON } from '../chatToMessages'
+import { standardChat } from '../__mocks__/chat'
 
 describe('Convert text file to JSON', () => {
-  test('an empty string returns a valid JSON object', () => {
-    const file = ''
-
-    const res = convertToJSON(file)
-    expect(res).toMatchObject({
-      data: []
-    })
-  })
-
-  test('a valid file string returns valid messages', () => {
+  test('a valid file string returns valid messages response', () => {
     const { data } = convertToJSON(standardChat)
 
     expect(data).toEqual(
@@ -25,10 +14,6 @@ describe('Convert text file to JSON', () => {
         }
       ])
     )
-  })
-
-  test('a valid file string returns valid multiline messages', () => {
-    const { data } = convertToJSON(standardChat)
 
     expect(data).toEqual(
       expect.arrayContaining([
@@ -39,6 +24,17 @@ describe('Convert text file to JSON', () => {
         }
       ])
     )
+
+    expect(data[0].message).not.toEqual('‎Messages to this group are now secured with end-to-end encryption.')
+  })
+
+  test('an empty string returns a valid JSON object', () => {
+    const file = ''
+
+    const res = convertToJSON(file)
+    expect(res).toMatchObject({
+      data: []
+    })
   })
 
   test('media message lines to be included', () => {
